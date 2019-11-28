@@ -1,6 +1,21 @@
 # Flashcards
 
-**Stage 2: (ongoing)**
+**Stage 3: (ongoing)**
+
+_**Description**<br>
+Your program is able to play using one card. Let's make our game serious and implement a set of cards now!_
+
+_Let the user decide how many cards they would like to keep. First, ask the player to enter the desired number of cards. Then, ask to input the term and the definition of every card. If the initial number was 100, then... well, what a pity!_
+
+_In the end, when all of the cards are defined and saved, your program is finally ready to play! Question the player about all the new words they have entered. The program should give the term and ask for a definition. Let the game begin!__
+
+_**How to submit?**<br>
+This stage is auto-graded. The grader will behave as in example, so you can change an internal logic of your code, but the output should be similar. Here are some important notes:<br>_
+
+* _When you ask for a definition of a card, you should write the term of the card in quotes. Example: `Print the definition of "black":`._
+* _If the answer is correct, you should print `Correct answer.`. And if the answer is wrong, you should print `Wrong answer. The correct one is "black".`, where `"black"` is the correct definition._
+***
+**Stage 2:**
 
 _**Description**<br>
 We cannot play Flashcards with only one card, right? Let's make our program dynamic! Implement a custom card creation mechanism. Read a term and a definition from the console and create a card._
