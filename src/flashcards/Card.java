@@ -9,6 +9,10 @@ public class Card {
         this.definition = definition;
     }
 
+    String getDefinition() {
+        return definition;
+    }
+
     @Override
     public String toString() {
         return "Card:\n" +

@@ -9,7 +9,7 @@ class CardBox {
         cards.add(card);
     }
 
-    public Card getCard() {
+    Card getCard() {
         return cards.element();
     }
 }
