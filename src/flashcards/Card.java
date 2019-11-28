@@ -9,6 +9,10 @@ public class Card {
         this.definition = definition;
     }
 
+    String getName() {
+        return hint;
+    }
+
     String getDefinition() {
         return definition;
     }
@@ -20,4 +24,5 @@ public class Card {
                 "Definition:\n" +
                 definition;
     }
+
 }
