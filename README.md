@@ -1,9 +1,28 @@
 # Flashcards
 
-**Stage 4: (ongoing)**
+**Stage 5: (ongoing)**
 
 _**Description**<br>
-Imagine a situation: the answer is wrong for the given term, but it is correct for another term. Let's consider situations like this.
+Improve the application's interactivity. Ask the user for action and make it._
+
+_Support these actions:<br>_
+* _add a card: `add`,_
+* _remove a card: `remove`,_
+* _load cards from file ("deserialization"): `import`,_
+* _save cards to file ("serialization"): `export`,_
+* _ask for a definition of some random cards: `ask`,_
+* _exit the program: `exit`._
+
+_You can use the following file format. The file consists of pairs of lines. The first line of each pair is a term, and the second line is a definition._
+
+_In this stage, if you try to add a card with an existing term or an existing definition, the application must just reject it by printing an error message._
+
+_When you load cards from a file, you shouldn't erase the cards that aren't in the file. If the imported card already exists, it should update the old one. It is guaranteed, that there won't be any conflicts with definitions in the tests._
+***
+**Stage 4:**
+
+_**Description**<br>
+Imagine a situation: the answer is wrong for the given term, but it is correct for another term. Let's consider situations like this._
 
 _You can use maps. Ask all card's definitions in the order of addition. If the definition is wrong for the current term but it is correct for another, output the original term._
 
