@@ -15,7 +15,11 @@ class CardBox {
     }
 
     Card getCard(String name){
-        return new Card(name, cards.get(name));
+        if(cards.containsKey(name)){
+            return new Card(name, cards.get(name));
+        } else {
+            return new Card(name, "definition to be updated");
+        }
     }
 
     boolean containsValue(String value){
