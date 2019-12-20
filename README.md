@@ -5,9 +5,9 @@
 _**Description**<br>
 Add some statistics features. We suggest you implement the following:_
 
-* _Action log saves the application log to the given file. Save all lines that have been input in or output to the console to the file. You can use a list to store the lines._
-* _Action hardest card prints the term of the card that has the most mistakes. You can store the mistake count in a map. If there are no cards with mistakes, you should print There are no cards with errors.. And for multiple hardest cards, you should list them all, like in the example below._
-* _Action reset stats erases the mistake counts for all cards._
+* _Action `log` saves the application log to the given file. Save all lines that have been input in or output to the console to the file. You can use a list to store the lines._
+* _Action `hardest card` prints the term of the card that has the most mistakes. You can store the mistake count in a map. If there are no cards with mistakes, you should print `There are no cards with errors.`. And for multiple hardest cards, you should list them all, like in the example below._
+* _Action `reset stats` erases the mistake counts for all cards._
 
 _Also you should update serialization/deserialization to store sets of three items (term, definition, mistakes) instead of pairs (term, definition)._
 ***
