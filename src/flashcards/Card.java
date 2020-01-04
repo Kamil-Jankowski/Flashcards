@@ -1,5 +1,7 @@
 package flashcards;
 
+import java.util.Objects;
+
 public class Card {
     private String hint;
     private String definition;
@@ -23,5 +25,19 @@ public class Card {
                 hint + "\n" +
                 "Definition:\n" +
                 definition;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Card)) return false;
+        Card card = (Card) o;
+        return hint.equals(card.hint) &&
+                definition.equals(card.definition);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hint, definition);
     }
 }

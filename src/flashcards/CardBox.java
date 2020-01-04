@@ -1,25 +1,28 @@
 package flashcards;
 
-import java.io.*;
 import java.util.*;
 
 class CardBox {
     private HashMap<String, String> cards = new LinkedHashMap<>();
 
+    Set<String> toSet() {
+        return cards.keySet();
+    }
+
+    ArrayList<String> list(){
+        return new ArrayList<>(cards.keySet());
+    }
+
     void add(Card card) {
         cards.putIfAbsent(card.getName(), card.getDefinition());
     }
 
-    private void addOrUpdate(Card card) {
+    void addOrUpdate(Card card) {
         cards.put(card.getName(), card.getDefinition());
     }
 
     Card getCard(String name){
-        if(cards.containsKey(name)){
-            return new Card(name, cards.get(name));
-        } else {
-            return new Card(name, "definition to be updated");
-        }
+        return new Card(name, cards.getOrDefault(name, "definition to be updated"));
     }
 
     boolean containsValue(String value){
@@ -38,52 +41,16 @@ class CardBox {
         return defaultValue;
     }
 
-    Set<String> toSet() {
-        return cards.keySet();
-    }
-
-    ArrayList<String> list(){
-        return new ArrayList<>(cards.keySet());
-    }
-
     void remove(String card){
         if (toSet().contains(card)) {
             cards.remove(card);
-            System.out.println("The card has been removed.\n");
+            IO.println("The card has been removed.\n");
         } else {
-            System.out.println(String.format("Can't remove \"%s\": there is no such card.\n", card));
+            IO.println(String.format("Can't remove \"%s\": there is no such card.\n", card));
         }
     }
 
-    void importCards(String path) {
-        File file = new File(path);
-        int amount = 0;
-        try (Scanner reader = new Scanner(file)){
-            while (reader.hasNext()){
-                String inputLine = reader.nextLine();
-                String[] pair = inputLine.split(" : ");
-                Card card = new Card(pair[0], pair[1]);
-                addOrUpdate(card);
-                amount++;
-            }
-            System.out.println(String.format("%d cards have been loaded.\n", amount));
-        } catch(FileNotFoundException e){
-            System.out.println("File not found.\n");
-        } catch (ArrayIndexOutOfBoundsException ex){
-            System.out.println("Wrong file formatting.\n");
-        }
-    }
-
-    void exportCards(String path) {
-        File file = new File(path);
-        try (PrintWriter writer = new PrintWriter(file)){
-            for (String card : toSet()){
-                String definition = cards.get(card);
-                writer.println(String.format("%s : %s", card, definition));
-            }
-            System.out.println(String.format("%d cards have been saved.\n", cards.size()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public int size() {
+        return cards.size();
     }
 }

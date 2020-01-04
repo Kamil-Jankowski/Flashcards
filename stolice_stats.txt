@@ -1,0 +1,5 @@
+France : Paris : 0
+Poland : Warsaw : 0
+Japan : Tokio : 2
+Germany : Berlin : 1
+UK : London : 0
