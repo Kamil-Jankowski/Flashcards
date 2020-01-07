@@ -1,6 +1,6 @@
-# Flashcards
+# Flashcards - project finished
 
-**Stage 7: (ongoing)**
+**Stage 7:**
 
 _**Description**<br>
 Users often use files to save their progress and restore it the next time they run the program. It's tedious to print the actions manually. Sometimes you can just forget to do it! So let's add run arguments that define which file to read at the start and which file to save at the exit._
