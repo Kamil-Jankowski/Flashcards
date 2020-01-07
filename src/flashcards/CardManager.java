@@ -50,9 +50,18 @@ class CardManager {
 
     void importCards() {
         File file = new File(setFilePath());
+        importFromFile(file);
+    }
+
+    void importCardsFromArgs(String fileName){
+        File file = new File("./" + fileName);
+        importFromFile(file);
+    }
+
+    private void importFromFile(File file) {
         int amount = 0;
-        try (Scanner reader = new Scanner(file)){
-            while (reader.hasNext()){
+        try (Scanner reader = new Scanner(file)) {
+            while (reader.hasNext()) {
                 String inputLine = reader.nextLine();
                 String[] input = inputLine.split(" : ");
                 Card card = new Card(input[0], input[1]);
@@ -63,15 +72,24 @@ class CardManager {
                 amount++;
             }
             IO.println(String.format("%d cards have been loaded.\n", amount));
-        } catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             IO.println("File not found.\n");
-        } catch (ArrayIndexOutOfBoundsException ex){
+        } catch (ArrayIndexOutOfBoundsException ex) {
             IO.println("Wrong file formatting.\n");
         }
     }
 
     void exportCards() {
         File file = new File(setFilePath());
+        exportToFile(file);
+    }
+
+    public void exportCardsFromArgs(String fileName) {
+        File file = new File("./" + fileName);
+        exportToFile(file);
+    }
+
+    private void exportToFile(File file) {
         try (PrintWriter writer = new PrintWriter(file)){
             for (String cardName : cardBox.toSet()){
                 Card card = cardBox.getCard(cardName);
@@ -116,7 +134,7 @@ class CardManager {
                 checkAnswer(cardName, nameThatMatchesAnswer);
             }
         } else {
-            IO.println("No cards available\n");
+            IO.println("No cards available");
         }
         IO.println();
     }
@@ -132,5 +150,4 @@ class CardManager {
             IO.println(String.format("Wrong answer. The correct one is \"%s\".", cardDefinition));
         }
     }
-
 }
